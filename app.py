@@ -19,7 +19,10 @@ def main():
 @app.route("/details/", methods=['GET'])
 def app_details():
     query = request.args.get('query')
-    return jsonify(play_scraper.details(query))
+    if query is not None:
+        details = details(query)
+        if details is not None:
+            return jsonify(details)
 
 
 if __name__ == '__main__':
