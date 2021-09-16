@@ -51,7 +51,9 @@ def app_collection():
     if results is not None:
         return jsonify(results)
     else:
-        return jsonify({"error": "Something wrong"})
+        return jsonify(
+            {"error": "Something wrong"}
+        )
 
 
 if __name__ == '__main__':
