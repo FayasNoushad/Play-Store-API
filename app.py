@@ -9,7 +9,7 @@ import play_scraper
 
 
 app = Flask(__name__)
-
+docs = "<a href='https://github.com/FayasNoushad/Play-Store-API'>documentation</a>."
 
 @app.route("/")
 def main():
@@ -31,6 +31,26 @@ def app_details():
         return jsonify(
             {"error": "Query is None"}
         )
+
+
+@app.route("/collection/", methods=['GET'])
+def app_collection():
+    collection_name = request.args.get('collection')
+    if collection_name and collection_name not in play_scraper.lists.COLLECTIONS:
+        return jsonify(
+            {"error": f"No collection name found, Read the full {docs}."}
+        )
+    category_name = request.args.get('category')
+    if not category_name or category_name not in play_scraper.lists.CATEGORIES:
+        category_name = None
+    results = play_scraper.collection(
+        collection = collection_name,
+        category = category_name
+    )
+    if results is not None:
+        return jsonify(results)
+    else:
+        return jsonify({"error": "Something wrong"})
 
 
 if __name__ == '__main__':
