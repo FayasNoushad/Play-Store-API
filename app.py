@@ -31,7 +31,6 @@ def app_details():
         return jsonify(
             {"error": "Query is None"}
         )
-        
 
 
 if __name__ == '__main__':
