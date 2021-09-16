@@ -11,6 +11,7 @@ import play_scraper
 app = Flask(__name__)
 docs = "<a href='https://github.com/FayasNoushad/Play-Store-API'>documentation</a>."
 
+
 @app.route("/")
 def main():
     return "Documentation:- <a href='https://github.com/FayasNoushad/Play-Store-API'>Play-Store-API</a>"
