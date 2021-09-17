@@ -35,7 +35,7 @@ def app_details():
 
 
 @app.route("/collection/", methods=['GET'])
-def app_collection():
+def search_app_collection():
     collection_name = request.args.get('collection')
     if collection_name and collection_name not in play_scraper.lists.COLLECTIONS:
         return jsonify(
@@ -57,7 +57,7 @@ def app_collection():
 
 
 @app.route("/developer/", methods=['GET'])
-def app_developer():
+def search_app_developer():
     query = request.args.get('query')
     results = play_scraper.developer(query)
     if results is not None:
@@ -69,7 +69,7 @@ def app_developer():
 
 
 @app.route("/suggestions/", methods=['GET'])
-def app_suggestions():
+def search_app_suggestions():
     query = request.args.get('query')
     results = play_scraper.suggestions(query)
     if results is not None:
@@ -81,7 +81,7 @@ def app_suggestions():
 
 
 @app.route("/search/", methods=['GET'])
-def app_search():
+def search_apps():
     query = request.args.get('query')
     results = play_scraper.search(query)
     if results is not None:
