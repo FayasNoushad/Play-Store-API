@@ -68,6 +68,18 @@ def app_developer():
         )
 
 
+@app.route("/suggestions/", methods=['GET'])
+def app_suggestions():
+    suggestion_name = request.args.get('suggestions')
+    results = play_scraper.suggestions(suggestion_name)
+    if results is not None:
+        return jsonify(results)
+    else:
+        return jsonify(
+            {"error": f"Something wrong, Read the {docs}."}
+        )
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host="0.0.0.0", port=5000, use_reloader=True, threaded=True)
