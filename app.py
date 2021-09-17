@@ -92,6 +92,18 @@ def app_search():
         )
 
 
+@app.route("/similar/", methods=['GET'])
+def similar_apps():
+    query = request.args.get('query')
+    results = play_scraper.similar(query)
+    if results is not None:
+        return jsonify(results)
+    else:
+        return jsonify(
+            {"error": f"Something wrong, Read the {docs}."}
+        )
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host="0.0.0.0", port=5000, use_reloader=True, threaded=True)
