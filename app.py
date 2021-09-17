@@ -104,6 +104,17 @@ def similar_apps():
         )
 
 
+@app.route("/categories/")
+def categories_list():
+    results = play_scraper.categories()
+    if results is not None:
+        return jsonify(results)
+    else:
+        return jsonify(
+            {"error": f"Something wrong, Read the {docs}."}
+        )
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host="0.0.0.0", port=5000, use_reloader=True, threaded=True)
