@@ -58,8 +58,8 @@ def app_collection():
 
 @app.route("/developer/", methods=['GET'])
 def app_developer():
-    developer_name = request.args.get('developer')
-    results = play_scraper.developer(developer_name)
+    query = request.args.get('query')
+    results = play_scraper.developer(query)
     if results is not None:
         return jsonify(results)
     else:
@@ -70,8 +70,8 @@ def app_developer():
 
 @app.route("/suggestions/", methods=['GET'])
 def app_suggestions():
-    suggestion_name = request.args.get('suggestions')
-    results = play_scraper.suggestions(suggestion_name)
+    query = request.args.get('query')
+    results = play_scraper.suggestions(query)
     if results is not None:
         return jsonify(results)
     else:
