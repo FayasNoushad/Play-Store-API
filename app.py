@@ -80,6 +80,18 @@ def app_suggestions():
         )
 
 
+@app.route("/search/", methods=['GET'])
+def app_search():
+    query = request.args.get('query')
+    results = play_scraper.search(query)
+    if results is not None:
+        return jsonify(results)
+    else:
+        return jsonify(
+            {"error": f"Something wrong, Read the {docs}."}
+        )
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host="0.0.0.0", port=5000, use_reloader=True, threaded=True)
