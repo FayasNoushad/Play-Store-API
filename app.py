@@ -4,17 +4,17 @@
 # All rights reserved by FayasNoushad
 # License -> https://github.com/FayasNoushad/Play-Store-API/blob/main/LICENSE
 
-from flask import Flask, redirect, request, jsonify, json 
+from flask import Flask, redirect, render_template, request, jsonify, json 
 import play_scraper
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="public")
 docs = "<a href='https://github.com/FayasNoushad/Play-Store-API'>documentation</a>."
 
 
 @app.route("/")
 def main():
-    return "Documentation:- <a href='https://github.com/FayasNoushad/Play-Store-API'>Play-Store-API</a>"
+    return render_template("index.html")
 
 
 @app.route("/details/", methods=['GET'])
