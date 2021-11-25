@@ -3,41 +3,41 @@
 ### For app details
 
 ```
-https://playstore.api.fayas.me/details/?query=<app-id>
+https://play-store-api.vercel.app/details/?query=<app-id>
 ```
 
 ### For app collection
 
 ```
-https://playstore.api.fayas.me/collection/?collection=<collection-name>&category=<category-name>
+https://play-store-api.vercel.app/collection/?collection=<collection-name>&category=<category-name>
 ```
 
 ### For developer information
 
 ```
-https://playstore.api.fayas.me/developer/?query=<developer>
+https://play-store-api.vercel.app/developer/?query=<developer>
 ```
 
 ### For suggestions
 
 ```
-https://playstore.api.fayas.me/suggestions/?query=<query>
+https://play-store-api.vercel.app/suggestions/?query=<query>
 ```
 
 ### For search apps
 
 ```
-https://playstore.api.fayas.me/search/?query=<query>
+https://play-store-api.vercel.app/search/?query=<query>
 ```
 
 ### For similar apps 
 
 ```
-https://playstore.api.fayas.me/similar/?query=<app-id>
+https://play-store-api.vercel.app/similar/?query=<app-id>
 ```
 
 ### For category list
 
 ```
-https://playstore.api.fayas.me/categories
+https://play-store-api.vercel.app/categories
 ```
